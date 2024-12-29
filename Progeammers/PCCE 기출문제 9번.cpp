@@ -55,3 +55,5 @@ int solution(vector<int> wallet, vector<int> bill) {
     }
     return answer;
 }
+
+//피드백 : #include<algorithm>을 통해 sort()함수를 이용하여 벡터를 정렬을 할 수 있다.(작은값이 앞으로) -> compare를 구성할 필요 없다.
