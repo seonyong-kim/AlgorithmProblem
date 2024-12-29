@@ -5,9 +5,7 @@ using namespace std;
 
 int func1(int humidity, int val_set) {
     if (humidity < val_set)
-        return
-        3
-        ;
+        return 3;
     return 1;
 }
 
