@@ -8,7 +8,7 @@ int solution(int n)
         answer += n % 10;
         n /= 10;
     }
-    // [½ÇÇà] ¹öÆ°À» ´©¸£¸é Ãâ·Â °ªÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.
+    // [ì‹¤í–‰] ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ì¶œë ¥ ê°’ì„ ë³¼ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
     cout << "Hello Cpp" << endl;
 
     return answer;
