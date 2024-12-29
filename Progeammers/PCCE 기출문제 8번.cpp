@@ -22,7 +22,7 @@ string solution(string nickname) {
             answer += nickname[i];
         }
     }
-    while (answer.size() <= 3) {
+    while (answer.size() <= 3) {  //이부분 변경
         answer += "o";
     }
     if (answer.size() > 8) {
