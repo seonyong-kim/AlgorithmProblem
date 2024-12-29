@@ -23,3 +23,4 @@ int solution(string s) {
     }
     return answer;
 }
+// stoi()함수 쓰면 부호까지 한번에 바꿔준다.
