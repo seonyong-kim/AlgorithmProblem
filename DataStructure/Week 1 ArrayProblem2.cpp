@@ -21,16 +21,16 @@ Array::Array(int size) {
 	}
 }
 void Array::shift(int leftIndex, int rightIndex) {
-	int saveIndex = arr[leftIndex];
-	for (int i = leftIndex; i < rightIndex; i++) {
-		arr[i] = arr[i + 1];
+	int saveValue = arr[rightIndex];
+	for (int i = rightIndex - 1; i >= leftIndex; i--) {
+		arr[i + 1] = arr[i];
 	}
-	arr[rightIndex] = saveIndex;
+	arr[leftIndex] = saveValue;
 }
 void Array::swap(int leftIndex, int rightIndex) {
-	int saveIndex = arr[leftIndex];
-	arr[leftIndex] = arr[rightIndex];
-	arr[rightIndex] = saveIndex;
+	int saveValue = arr[rightIndex];
+	arr[rightIndex] = arr[leftIndex];
+	arr[leftIndex] = saveValue;
 }
 void Array::print() {
 	for (int i = 0; i < arrSize; i++) {
