@@ -25,4 +25,5 @@ int main() {
 	}
 
 	cout << (answer.empty() ? "PREDAJA" : answer);
+	return 0;
 }
