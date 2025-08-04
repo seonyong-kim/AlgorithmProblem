@@ -1,54 +1,61 @@
 #include <iostream>
-#include <vector>
+#include <deque>
 using namespace std;
 
 int main() {
-	int N, M;
-	cin >> N >> M;
-	vector<int> vec(M);
-	for (int i = 0; i < M; i++) {
-		cin >> vec[i];
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-	int answer = 0;
-	while (!vec.empty()) {
-		int min = vec[0] - 1;
-		int max = (N - vec[0]) + 1;
+    int N, M;
+    cin >> N >> M;
+    deque<int> dq;
+    for (int i = 1; i <= N; i++) {
+        dq.push_back(i);
+    }
 
-		// ¿ŞÂÊÀ¸·Î °¡´Â °æ¿ì°¡ ´õ ºü¸¥ °æ¿ì
-		if (min <= max) {
-			vec.erase(vec.begin()); // »èÁ¦
-			answer += min; // ÀÌµ¿ÇÑ È½¼ö Ãß°¡ÇÏ±â
-			for (int i = 0; i < vec.size(); i++) {
-				vec[i] -= (min + 1);
-				// ¿ŞÂÊÀ¸·Î ÀÌµ¿ÇÏ´Ù°¡ À½¼ö°¡ µÈ´Ù¸é
-				// ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿½ÃÅ°°í ³ª¸ÓÁö ¿¬»êÀ» ÇÑ´Ù.
-				if (vec[i] < 1) {
-					vec[i] += N;
-				}
-			}
-		}
-		// ¿À¸¥ÂÊÀ¸·Î °¡´É °æ¿ì°¡ ´õ ºü¸¥ °æ¿ì
-		else {
-			vec.erase(vec.begin());
-			answer += max;
-			// À½¼ö°¡ µÇ´Â °æ¿ì°¡ ¾øÁö¸¸, ÀÎµ¦½º ¹üÀ§¸¦ ÃÊ°úÇÏ´Â °æ¿ì°¡ ÀÖÀ» ¼öµµ
-			for (int i = 0; i < vec.size(); i++) {
-				vec[i] = (vec[i] + max - 1) % (vec.size() + 1);
-			}
-		}
-		N--;
-	}
-	cout << answer;
+    int ans = 0;
+    for (int i = 0; i < M; i++) {
+        int target;
+        cin >> target;
+        // í˜„ì¬ íì—ì„œ targetì´ ìˆëŠ” ìœ„ì¹˜ë¥¼ ì°¾ëŠ”ë‹¤.
+        int idx = 0;
+        for (int x : dq) {
+            if (x == target) break;
+            idx++;
+        }
+        // ì™¼ìª½ íšŒì „ íšŸìˆ˜ = idx
+        // ì˜¤ë¥¸ìª½ íšŒì „ íšŸìˆ˜ = dq.size() - idx
+        if (idx <= (int)dq.size() - idx) {
+            // ì™¼ìª½ìœ¼ë¡œ idxë²ˆ íšŒì „
+            ans += idx;
+            while (idx--) {
+                int front = dq.front();
+                dq.pop_front();
+                dq.push_back(front);
+            }
+        }
+        else {
+            // ì˜¤ë¥¸ìª½ìœ¼ë¡œ (size-idx)ë²ˆ íšŒì „
+            int cnt = dq.size() - idx;
+            ans += cnt;
+            while (cnt--) {
+                int back = dq.back();
+                dq.pop_back();
+                dq.push_front(back);
+            }
+        }
+        // ì´ì œ ì•(front)ì— targetì´ ì˜¤ë¯€ë¡œ pop
+        dq.pop_front();
+    }
+
+    cout << ans << "\n";
+    return 0;
 }
 
-// 10 10
-// 1 6 3 2 7 9 8 4 10 5
-// 5 2 1 6 8 7 3 9 4 (9)
-// 1
 
 //
 // 27 6
 // 21 11
 // 
 //
+
