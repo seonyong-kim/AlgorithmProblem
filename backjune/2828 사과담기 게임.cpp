@@ -14,8 +14,8 @@ int main() {
         cin >> appleLocation[i];
     }
     
-    // ¿ÞÂÊ Æ÷ÀÎÆ®¿Í ¿À¸¥ÂÊ Æ÷ÀÎÆ®¸¦ ÀúÀåÇØ¼­ 
-    // ÀÛÀº Áö Å«Áö¿¡ µû¶ó ÀÌµ¿½ÃÅ°¸é ÀÌµ¿ÇÑ°ÍÀ» ´õÇØÁØ´Ù.
+    // ì™¼ìª½ í¬ì¸íŠ¸ì™€ ì˜¤ë¥¸ìª½ í¬ì¸íŠ¸ë¥¼ ì €ìž¥í•´ì„œ 
+    // ìž‘ì€ ì§€ í°ì§€ì— ë”°ë¼ ì´ë™ì‹œí‚¤ë©´ ì´ë™í•œê²ƒì„ ë”í•´ì¤€ë‹¤.
     int sum = 0;
     int leftPoint = 1;
     int rightPoint = M;
