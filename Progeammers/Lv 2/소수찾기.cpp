@@ -31,6 +31,6 @@ int solution(string numbers) {
         if (isPrime(num))
             answer++;
     }
-
     return answer;
+
 }
