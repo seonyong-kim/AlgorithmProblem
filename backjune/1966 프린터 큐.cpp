@@ -9,7 +9,6 @@ int main() {
 
     for (int i = 0; i < N; ++i) {
         cin >> number >> document;
-
         queue<pair<int, int>> q;
         priority_queue<int> pq; 
         for (int j = 0; j < number; ++j) {
@@ -34,4 +33,5 @@ int main() {
             else q.push({ index,value });
         }
     }
+
 }
